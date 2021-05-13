@@ -1,3 +1,3 @@
 # Tic Tac Toe
 ### Scott Mackey
-![Wire Frame](public\read-me-docs\tictactoe-wireframe.png)
+![Wire Frame](read-me-docs\tictactoe-wireframe.png)
