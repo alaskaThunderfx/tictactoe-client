@@ -13,6 +13,7 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
+      <!-- Sign up and sign in starts here -->
       <section class="authentication">
         <section>
           <h3>Sign Up</h3>
@@ -35,12 +36,31 @@
           <div id="sign-in-display"></div>
         </section>
       </section>
-
+      <!-- sign in and sign out ends here -->
+      <!-- sign out and new game starts here -->
       <section id='hidden' class='initial-hide'>
         <button id="sign-out">Sign out!</button>
         <button id="new-game">New Game</button>
         <div id="sign-out-display"></div>
       </section>
+      <!-- sign out and new game ends here -->
+      <!-- game board starts here -->
       <div id="messaging"></div>
+
+      <section id='game-board'>
+        <div id="cells">
+          <div class="row">
+            <div class="col-4 box alt-color" id="cell0"></div>
+            <div class="col-4 box alt-color" id="cell1"></div>
+            <div class="col-4 box alt-color" id="cell2"></div>
+            <div class="col-4 box alt-color" id="cell3"></div>
+            <div class="col-4 box alt-color" id="cell4"></div>
+            <div class="col-4 box alt-color" id="cell5"></div>
+            <div class="col-4 box alt-color" id="cell6"></div>
+            <div class="col-4 box alt-color" id="cell7"></div>
+            <div class="col-4 box alt-color" id="cell8"></div>
+          </div>
+        </div>
+      </section>
     </body>
 </html>

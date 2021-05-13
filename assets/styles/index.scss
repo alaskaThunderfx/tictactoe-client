@@ -1,5 +1,35 @@
 @import '~bootstrap/scss/bootstrap';
 
+$alt-color: $cyan;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+body {
+  background-color: $body-bg-color;
+}
+
+.row {
+  align-items: center;
+  height: 900px;
+  margin: 0;
+  width: 900px;
+}
+
+.box {
+  align-items: center;
+  background-color: $secondary;
+  border: solid 1px;
+  color: $font-color;
+  height: 300px;
+  max-height: initial;
+  max-width: initial;
+  resize: none;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
+
 .initial-hide {
   display: none;
 }
