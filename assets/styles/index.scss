@@ -8,6 +8,14 @@ body {
   background-color: $body-bg-color;
 }
 
+img {
+  opacity: 0;
+}
+
+img:hover {
+  opacity: 100%;
+}
+
 .row {
   align-items: center;
   border: 0;
@@ -21,6 +29,8 @@ body {
   background-color: $secondary;
   color: $font-color;
   height: 300px;
+  display: flex;
+  justify-content: center;
   max-height: initial;
   max-width: initial;
   resize: none;
