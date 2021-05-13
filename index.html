@@ -13,33 +13,33 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
-      <div id="messaging"></div>
+      <section class="authentication">
+        <section>
+          <h3>Sign Up</h3>
+          <form id='sign-up'>
+            <input name="credentials[email]" type="text" placeholder="an@example.email"/>
+            <input name="credentials[password]" type="password" placeholder="an example password"/>
+            <input name="credentials[password_confirmation]" type="password" placeholder="an example password"/>
+            <button>Sign up!</button>
+          </form>
+          <div id="sign-up-display"></div>
+        </section>
 
-      <section>
-        <h3>Sign Up</h3>
-        <form id='sign-up'>
-          <input name="credentials[email]" type="text" placeholder="an@example.email"/>
-          <input name="credentials[password]" type="password" placeholder="an example password"/>
-          <input name="credentials[password_confirmation]" type="password" placeholder="an example password"/>
-          <button>Sign up!</button>
-        </form>
-        <div id="sign-up-display"></div>
+        <section>
+          <h3>Sign In</h3>
+          <form id='sign-in'>
+            <input name="credentials[email]" type="text" placeholder="an@example.email"/>
+            <input name="credentials[password]" type="password" placeholder="an example password"/>
+            <button>Sign in!</button>
+          </form>
+          <div id="sign-in-display"></div>
+        </section>
       </section>
-
-      <section>
-        <h3>Sign In</h3>
-        <form id='sign-in'>
-          <input name="credentials[email]" type="text" placeholder="an@example.email"/>
-          <input name="credentials[password]" type="password" placeholder="an example password"/>
-          <button>Sign in!</button>
-        </form>
-        <div id="sign-in-display"></div>
-      </section>
-
-      <section>
+      <section class='intial-hide'>
         <h3>Sign Out</h3>
           <button id="sign-out">Sign out!</button>
         <div id="sign-out-display"></div>
       </section>
+      <div id="messaging"></div>
     </body>
 </html>
