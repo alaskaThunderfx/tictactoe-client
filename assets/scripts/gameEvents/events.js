@@ -10,6 +10,14 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
+const onCell0Click = function (event) {
+  event.preventDefault()
+  api.cell0Click()
+    .then(ui.cell0ClickSuccess)
+    .catch(ui.cell0ClickFailure)
+}
+
 module.exports = {
-  onNewGame
+  onNewGame,
+  onCell0Click
 }

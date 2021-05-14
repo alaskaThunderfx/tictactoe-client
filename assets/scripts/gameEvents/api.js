@@ -13,6 +13,13 @@ const newGame = function (gameData) {
   })
 }
 
+const cell0Click = function () {
+  console.log('in Cell 0 click')
+  return $.ajax({
+  })
+}
+
 module.exports = {
-  newGame
+  newGame,
+  cell0Click
 }

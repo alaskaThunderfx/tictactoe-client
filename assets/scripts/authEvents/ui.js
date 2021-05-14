@@ -62,6 +62,7 @@ const signOutSuccess = function () {
 
   $('.authentication').show()
   $('#hidden').addClass('initial-hide')
+  $('#game-board').addClass('board-hide')
 
   store.user = null
 }
