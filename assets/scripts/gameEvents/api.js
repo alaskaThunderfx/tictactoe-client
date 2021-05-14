@@ -14,6 +14,16 @@ const newGame = function (gameData) {
 }
 
 const cell0Click = function () {
+  const boardState = function (gameData) {
+    console.log('in board state')
+    return $.ajax({
+      method: 'GET',
+      id: gameData.id,
+      url: config.apiUrl + '/games',
+      gameData
+    })
+  }
+  console.log(boardState())
   console.log('in Cell 0 click')
   return $.ajax({
   })
