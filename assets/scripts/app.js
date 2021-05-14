@@ -1,5 +1,6 @@
 'use strict'
-const ticTacToeEvents = require('./authEvents/events.js')
+const authEvents = require('./authEvents/events.js')
+const gameEvents = require('./gameEvents/events.js')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -7,7 +8,9 @@ const ticTacToeEvents = require('./authEvents/events.js')
 // require('./example')
 
 $(() => {
-  $('#sign-up').on('submit', ticTacToeEvents.onSignUp)
-  $('#sign-in').on('submit', ticTacToeEvents.onSignIn)
-  $('#sign-out').on('click', ticTacToeEvents.onSignOut)
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-out').on('click', authEvents.onSignOut)
+  $('#new-game').on('click', gameEvents.onNewGame)
+  $('#cell0').on('click', gameEvents.onCell0Click)
 })

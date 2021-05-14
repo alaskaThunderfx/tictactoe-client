@@ -1,1 +1,63 @@
 @import '~bootstrap/scss/bootstrap';
+
+$alt-color: $gray-200;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+body {
+  background-color: $body-bg-color;
+}
+
+img {
+  opacity: 0;
+}
+
+img:hover {
+  opacity: 100%;
+}
+
+.row {
+  align-items: center;
+  border: 0;
+  height: 900px;
+  margin: 0;
+  width: 900px;
+}
+
+.box {
+  align-items: center;
+  background-color: $secondary;
+  color: $font-color;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  max-height: initial;
+  max-width: initial;
+  resize: none;
+}
+
+.top-bottom {
+  border-top: solid black;
+  border-bottom: solid black;
+}
+
+.left-right {
+  border-left: solid black;
+  border-right: solid black;
+}
+
+.center {
+  border: solid black;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
+
+.initial-hide {
+  display: none;
+}
+
+.board-hide {
+  display: none;
+}
