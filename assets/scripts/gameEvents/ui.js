@@ -1,6 +1,6 @@
 const store = require('../store.js')
 
-let playerState = 0
+let playerState = 1
 
 const newGameSuccess = function (res) {
   $('#messaging').html(`
@@ -15,6 +15,8 @@ const newGameSuccess = function (res) {
     $('#messaging').removeClass('success')
   }, 5000)
 
+  $('#player-turn').html('<h3>Player X turn</h3>')
+
   store.games = res.games
 }
 
@@ -23,17 +25,15 @@ const newGameFailure = function () {
 }
 
 const cell0ClickSuccess = function () {
-  $('#messaging').addClass('success')
-
   if (playerState === 0) {
     playerState++
-    $('#messaging').html('')
-    $('#messaging').html('<h3>Player X turn</h3>')
+    $('#player-turn').html('')
+    $('#player-turn').html('<h3>Player X turn</h3>')
     console.log('player X', playerState)
   } else {
     playerState--
-    $('#messaging').html('')
-    $('#messaging').html('<h3>Player O turn</h3>')
+    $('#player-turn').html('')
+    $('#player-turn').html('<h3>Player O turn</h3>')
     console.log('player O', playerState)
   }
 }
