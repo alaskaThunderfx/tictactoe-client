@@ -9,7 +9,6 @@ const newGameSuccess = function (res) {
   $('#messaging').addClass('success')
   $('#game-board').removeClass('board-hide')
 
-  console.log('store.games = ', res.game.id)
   setTimeout(() => {
     $('#messaging').html('')
     $('#messaging').removeClass('success')
@@ -18,6 +17,7 @@ const newGameSuccess = function (res) {
   $('#player-turn').html('<h3>Player X turn</h3>')
 
   store.game = res.game
+  console.log('store.games = ', store.game._id)
   console.log(store)
 }
 
@@ -30,17 +30,41 @@ const cell0ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     $('#player-turn').html('<h3>Player X turn</h3>')
-    console.log('player X', playerState)
+    console.log('player O', playerState)
+    store.game.cells[0] = 'o'
+    console.log(store.game.cells)
   } else {
     playerState--
     $('#player-turn').html('')
     $('#player-turn').html('<h3>Player O turn</h3>')
-    console.log('player O', playerState)
+    $('#cell0').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
+    console.log('player X', playerState)
+    store.game.cells[0] = 'x'
+    console.log(store.game.cells)
   }
 }
 
 const cell0ClickFailure = function () {
 
+}
+
+const cell1ClickSuccess = function () {
+  if (playerState === 0) {
+    playerState++
+    $('#player-turn').html('')
+    $('#player-turn').html('<h3>Player X turn</h3>')
+    console.log('player O', playerState)
+    store.game.cells[1] = 'o'
+    console.log(store.game.cells)
+  } else {
+    playerState--
+    $('#player-turn').html('')
+    $('#player-turn').html('<h3>Player O turn</h3>')
+    $('#cell1').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
+    console.log('player X', playerState)
+    store.game.cells[1] = 'x'
+    console.log(store.game.cells)
+  }
 }
 
 module.exports = {
