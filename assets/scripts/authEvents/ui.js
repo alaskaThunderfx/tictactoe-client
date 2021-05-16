@@ -72,14 +72,12 @@ const signOutFailure = function () {
   $('#messaging').html('<p>Sign out failed...</p>')
 }
 
-const onIndexGamesSuccess = function (res) {
-  console.log(res)
-  let gamesHtml = ''
-  res.game.forEach(game => {
-    gamesHtml += `
-    <p>${game}</p>`
-  })
-  $('#index-games').html(gamesHtml)
+const indexGamesSuccess = function (res) {
+  // let gamesHtml = ''
+  for (let i = 0; i < res.games.length; i++) {
+    console.log(res.games[i])
+  }
+  // $('#index-games').html(gamesHtml)
 }
 
 module.exports = {
@@ -89,5 +87,5 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  onIndexGamesSuccess
+  indexGamesSuccess
 }
