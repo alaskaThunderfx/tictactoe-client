@@ -13,21 +13,8 @@ const newGame = function (gameData) {
   })
 }
 
-const cell0Click = function (newGameData) {
-  console.log('in cell0Click ', store.game.cells)
-  console.log(newGameData)
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + '/games/' + store.game._id,
-    data: newGameData,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-}
-
-const cell1Click = function (newGameData) {
-  console.log('in cell1Click ', store.game.cells)
+const cellClick = function (newGameData) {
+  console.log('in cellClick ', store.game.cells)
   console.log(newGameData)
   return $.ajax({
     method: 'PATCH',
@@ -41,6 +28,5 @@ const cell1Click = function (newGameData) {
 
 module.exports = {
   newGame,
-  cell0Click,
-  cell1Click
+  cellClick
 }
