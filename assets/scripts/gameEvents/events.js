@@ -31,6 +31,7 @@ const onCell0Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -41,7 +42,7 @@ const onCell0Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell0Click(newGameData)
       .then(ui.cell0ClickSuccess)
       .catch(ui.cell0ClickFailure)
   } else {
@@ -67,6 +68,7 @@ const onCell1Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -77,7 +79,7 @@ const onCell1Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell1Click(newGameData)
       .then(ui.cell1ClickSuccess)
       .catch(ui.cell1ClickFailure)
   } else {
@@ -103,6 +105,7 @@ const onCell2Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -113,7 +116,7 @@ const onCell2Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell2Click(newGameData)
       .then(ui.cell2ClickSuccess)
       .catch(ui.cell2ClickFailure)
   } else {
@@ -139,6 +142,7 @@ const onCell3Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -149,7 +153,7 @@ const onCell3Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell3Click(newGameData)
       .then(ui.cell3ClickSuccess)
       .catch(ui.cell3ClickFailure)
   } else {
@@ -175,6 +179,7 @@ const onCell4Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -185,7 +190,7 @@ const onCell4Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell4Click(newGameData)
       .then(ui.cell4ClickSuccess)
       .catch(ui.cell4ClickFailure)
   } else {
@@ -211,6 +216,7 @@ const onCell5Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -221,7 +227,7 @@ const onCell5Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell5Click(newGameData)
       .then(ui.cell5ClickSuccess)
       .catch(ui.cell5ClickFailure)
   } else {
@@ -247,6 +253,7 @@ const onCell6Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -257,7 +264,7 @@ const onCell6Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell6Click(newGameData)
       .then(ui.cell6ClickSuccess)
       .catch(ui.cell6ClickFailure)
   } else {
@@ -283,6 +290,7 @@ const onCell7Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -293,7 +301,7 @@ const onCell7Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell7Click(newGameData)
       .then(ui.cell7ClickSuccess)
       .catch(ui.cell7ClickFailure)
   } else {
@@ -319,6 +327,7 @@ const onCell8Click = function (event) {
         }
       }
     } else {
+      store.playerState++
       newGameData = {
         game: {
           cell: {
@@ -329,7 +338,7 @@ const onCell8Click = function (event) {
         }
       }
     }
-    api.cellClick(newGameData)
+    api.cell8Click(newGameData)
       .then(ui.cell8ClickSuccess)
       .catch(ui.cell8ClickFailure)
   } else {
