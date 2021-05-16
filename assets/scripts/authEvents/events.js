@@ -35,8 +35,17 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onIndexGames = function (event) {
+  event.preventDefault()
+  console.log('in onIndexGames')
+  api.indexGames()
+    .then(ui.indexGamesSuccess)
+    .catch(ui.indexGamesFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onIndexGames
 }

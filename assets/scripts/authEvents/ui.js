@@ -63,6 +63,7 @@ const signOutSuccess = function () {
   $('.authentication').show()
   $('#hidden').addClass('initial-hide')
   $('#game-board').addClass('board-hide')
+  $('#player-turn').html('')
 
   store.user = null
 }
@@ -71,11 +72,22 @@ const signOutFailure = function () {
   $('#messaging').html('<p>Sign out failed...</p>')
 }
 
+const onIndexGamesSuccess = function (res) {
+  console.log(res)
+  let gamesHtml = ''
+  res.game.forEach(game => {
+    gamesHtml += `
+    <p>${game}</p>`
+  })
+  $('#index-games').html(gamesHtml)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  onIndexGamesSuccess
 }

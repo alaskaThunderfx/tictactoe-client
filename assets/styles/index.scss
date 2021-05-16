@@ -8,14 +8,6 @@ body {
   background-color: $body-bg-color;
 }
 
-img {
-  opacity: 0;
-}
-
-img:hover {
-  opacity: 100%;
-}
-
 .row {
   align-items: center;
   border: 0;
