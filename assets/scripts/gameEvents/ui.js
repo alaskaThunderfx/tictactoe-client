@@ -9,7 +9,7 @@ const newGameSuccess = function (res) {
   $('#messaging').addClass('success')
   $('#game-board').removeClass('board-hide')
 
-  console.log(res)
+  console.log('store.games = ', res.game.id)
   setTimeout(() => {
     $('#messaging').html('')
     $('#messaging').removeClass('success')
@@ -17,7 +17,8 @@ const newGameSuccess = function (res) {
 
   $('#player-turn').html('<h3>Player X turn</h3>')
 
-  store.games = res.games
+  store.game = res.game
+  console.log(store)
 }
 
 const newGameFailure = function () {

@@ -13,19 +13,15 @@ const newGame = function (gameData) {
   })
 }
 
-const cell0Click = function () {
-  const boardState = function (gameData) {
-    console.log('in board state')
-    return $.ajax({
-      method: 'GET',
-      id: gameData.id,
-      url: config.apiUrl + '/games',
-      gameData
-    })
-  }
-  console.log(boardState())
-  console.log('in Cell 0 click')
+const cell0Click = function (gameData) {
+  console.log('in cell0Click ', store.game.cells)
   return $.ajax({
+    // method: 'PATCH',
+    // url: config.apiUrl + '/games/' + store.game.id,
+    // gameData,
+    // headers: {
+    //   Authorization: 'Bearer ' + store.user.token
+    // }
   })
 }
 
