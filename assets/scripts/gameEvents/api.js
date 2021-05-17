@@ -13,6 +13,16 @@ const newGame = function (gameData) {
   })
 }
 
+const indexGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 const cell0Click = function (newGameData) {
   console.log('in cellClick ', store.game.cells)
   console.log(newGameData)
@@ -132,6 +142,7 @@ const cell8Click = function (newGameData) {
 
 module.exports = {
   newGame,
+  indexGames,
   cell0Click,
   cell1Click,
   cell2Click,

@@ -11,7 +11,7 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
-  $('#index-games').on('click', authEvents.onIndexGames)
+  $('#index-games').on('click', gameEvents.onIndexGames)
   $('#new-game').on('click', gameEvents.onNewGame)
   $('#cell0').on('click', gameEvents.onCell0Click)
   $('#cell1').on('click', gameEvents.onCell1Click)
