@@ -4,10 +4,26 @@ const ui = require('./ui.js')
 
 store.playerState = 1
 
-const win = []
-const xwin = ['x', 'x', 'x']
-const owin = ['o', 'o', 'o']
-let wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+const wins = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]
+
+const gameEndChecker = function () {
+  wins.forEach(win => {
+    if (wins.every(win.join('')) === 3){
+      console.log('tie')
+    }
+  }
+  wins.forEach(win => {
+    if (win.join('') === 'xxx') {
+      console.log('X wins')
+      store.game.over = true
+      console.log(store.game.over)
+    } else if (win.join('') === 'ooo') {
+      console.log('O wins')
+      store.game.over = true
+    }
+  })
+}
+}
 
 const onNewGame = function (event) {
   event.preventDefault()
@@ -16,7 +32,6 @@ const onNewGame = function (event) {
   api.newGame(gameData)
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
-  // wins = [[store.game.cells[0], store.game.cells[1], store.game.cells[2]], [store.game.cells[3], store.game.cells[4], store.game.cells[5]], [store.game.cells[6], store.game.cells[7], store.game.cells[8]], [store.game.cells[0], store.game.cells[3], store.game.cells[6]], [store.game.cells[1], store.game.cells[4], store.game.cells[7]], [store.game.cells[2], store.game.cells[5], store.game.cells[8]], [store.game.cells[0], store.game.cells[4], store.game.cells[8]], [store.game.cells[2], store.game.cells[4], store.game.cells[6]]]
 }
 
 const onCell0Click = function (event) {
@@ -59,6 +74,7 @@ const onCell0Click = function (event) {
   } else {
     console.log('This cell[0] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell1Click = function (event) {
@@ -99,6 +115,7 @@ const onCell1Click = function (event) {
   } else {
     console.log('This cell[1] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell2Click = function (event) {
@@ -141,6 +158,7 @@ const onCell2Click = function (event) {
   } else {
     console.log('This cell[2] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell3Click = function (event) {
@@ -181,6 +199,7 @@ const onCell3Click = function (event) {
   } else {
     console.log('This cell[3] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell4Click = function (event) {
@@ -225,6 +244,7 @@ const onCell4Click = function (event) {
   } else {
     console.log('This cell[4] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell5Click = function (event) {
@@ -265,6 +285,7 @@ const onCell5Click = function (event) {
   } else {
     console.log('This cell[5] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell6Click = function (event) {
@@ -307,6 +328,7 @@ const onCell6Click = function (event) {
   } else {
     console.log('This cell[6] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell7Click = function (event) {
@@ -347,6 +369,7 @@ const onCell7Click = function (event) {
   } else {
     console.log('This cell[7] is occupied')
   }
+  gameEndChecker()
 }
 
 const onCell8Click = function (event) {
@@ -389,10 +412,12 @@ const onCell8Click = function (event) {
   } else {
     console.log('This cell[8] is occupied')
   }
+  gameEndChecker()
 }
 
 const onIndexGames = function (event) {
   wins.forEach(game => console.log(game))
+  console.log(store.game.over)
   event.preventDefault()
   console.log('in onIndexGames')
   api.indexGames()
