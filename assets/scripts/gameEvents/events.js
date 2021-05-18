@@ -3,20 +3,31 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 
 store.playerState = 1
+store.gameOver = false
 
-const wins = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]
+let wins = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]
 
-const gameEndChecker = function () {
+const onGameEnd = function () {
   wins.forEach(win => {
     if (win.join('') === 'xxx') {
       console.log('X wins')
-      store.game.over = true
-      console.log(store.game.over)
+      console.log(wins)
+      console.log(win)
+      store.gameOver = true
+      ui.gameEndXWonSuccess()
+      console.log(store.gameOver)
     } else if (win.join('') === 'ooo') {
       console.log('O wins')
-      store.game.over = true
-    } else if (store.game.cells.includes('') === false) {
-      store.game.over = true
+      console.log(wins)
+      console.log(win)
+      store.gameOver = true
+      ui.gameEndOWonSuccess()
+    } else if (store.game.cells.join('').length === 8) {
+      console.log('TIE')
+      console.log(wins)
+      console.log(win)
+      store.gameOver = true
+      ui.gameEndTieSuccess()
     }
   })
 }
@@ -24,6 +35,8 @@ const gameEndChecker = function () {
 const onNewGame = function (event) {
   event.preventDefault()
   console.log('in onNewGame')
+  store.playerState = 1
+  wins = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]
   const gameData = {}
   api.newGame(gameData)
     .then(ui.newGameSuccess)
@@ -34,7 +47,7 @@ const onCell0Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[0] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -74,14 +87,14 @@ const onCell0Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell1Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[1] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -119,14 +132,14 @@ const onCell1Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell2Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[2] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -166,14 +179,14 @@ const onCell2Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell3Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[3] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -211,14 +224,14 @@ const onCell3Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell4Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[4] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -260,14 +273,14 @@ const onCell4Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell5Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[5] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -305,14 +318,14 @@ const onCell5Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell6Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[6] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -352,14 +365,14 @@ const onCell6Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell7Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[7] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -397,14 +410,14 @@ const onCell7Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onCell8Click = function (event) {
   event.preventDefault()
   const gameData = store.game
   let newGameData = {}
-  if (store.game.over === false) {
+  if (store.gameOver === false) {
     if (gameData.cells[8] === '') {
       if (store.playerState === 1) {
         store.playerState--
@@ -444,12 +457,12 @@ const onCell8Click = function (event) {
   } else {
     console.log('game is over')
   }
-  gameEndChecker()
+  onGameEnd()
 }
 
 const onIndexGames = function (event) {
   wins.forEach(game => console.log(game))
-  console.log(store.game.over)
+  console.log(store.gameOver)
   event.preventDefault()
   console.log('in onIndexGames')
   api.indexGames()
@@ -460,6 +473,7 @@ const onIndexGames = function (event) {
 module.exports = {
   onNewGame,
   onIndexGames,
+  onGameEnd,
   onCell0Click,
   onCell1Click,
   onCell2Click,
