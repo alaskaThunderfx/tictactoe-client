@@ -96,7 +96,7 @@ module.exports = function (it) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store = __webpack_require__(48)('wks');
+var store = __webpack_require__(49)('wks');
 var uid = __webpack_require__(34);
 var Symbol = __webpack_require__(2).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
@@ -265,7 +265,7 @@ module.exports = function (it, key) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(49);
+var IObject = __webpack_require__(50);
 var defined = __webpack_require__(24);
 module.exports = function (it) {
   return IObject(defined(it));
@@ -276,7 +276,7 @@ module.exports = function (it) {
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pIE = __webpack_require__(50);
+var pIE = __webpack_require__(51);
 var createDesc = __webpack_require__(33);
 var toIObject = __webpack_require__(15);
 var toPrimitive = __webpack_require__(23);
@@ -443,7 +443,7 @@ module.exports = function (KEY, exec) {
 // 5 -> Array#find
 // 6 -> Array#findIndex
 var ctx = __webpack_require__(19);
-var IObject = __webpack_require__(49);
+var IObject = __webpack_require__(50);
 var toObject = __webpack_require__(9);
 var toLength = __webpack_require__(6);
 var asc = __webpack_require__(87);
@@ -517,7 +517,7 @@ if (__webpack_require__(7)) {
   var wks = __webpack_require__(5);
   var createArrayMethod = __webpack_require__(26);
   var createArrayIncludes = __webpack_require__(54);
-  var speciesConstructor = __webpack_require__(52);
+  var speciesConstructor = __webpack_require__(53);
   var ArrayIterators = __webpack_require__(89);
   var Iterators = __webpack_require__(47);
   var $iterDetect = __webpack_require__(59);
@@ -974,7 +974,7 @@ if (__webpack_require__(7)) {
 
 var Map = __webpack_require__(119);
 var $export = __webpack_require__(0);
-var shared = __webpack_require__(48)('metadata');
+var shared = __webpack_require__(49)('metadata');
 var store = shared.store || (shared.store = new (__webpack_require__(122))());
 
 var getOrCreateMetadataMap = function (target, targetKey, create) {
@@ -1389,6 +1389,17 @@ module.exports = {};
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+var store = {};
+
+module.exports = store;
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var core = __webpack_require__(18);
 var global = __webpack_require__(2);
 var SHARED = '__core-js_shared__';
@@ -1404,7 +1415,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -1416,14 +1427,14 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports) {
 
 exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1443,7 +1454,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
@@ -1456,17 +1467,6 @@ module.exports = function (O, D) {
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
 
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var store = {};
-
-module.exports = store;
 
 /***/ }),
 /* 54 */
@@ -1976,7 +1976,7 @@ module.exports = function (name) {
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(48)('keys');
+var shared = __webpack_require__(49)('keys');
 var uid = __webpack_require__(34);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
@@ -2354,7 +2354,7 @@ addToUnscopables('entries');
 "use strict";
 
 
-var regexpFlags = __webpack_require__(51);
+var regexpFlags = __webpack_require__(52);
 
 var nativeExec = RegExp.prototype.exec;
 // This always refers to the native implementation, because the
@@ -2993,9 +2993,9 @@ module.exports.f = function getOwnPropertyNames(it) {
 var DESCRIPTORS = __webpack_require__(7);
 var getKeys = __webpack_require__(35);
 var gOPS = __webpack_require__(55);
-var pIE = __webpack_require__(50);
+var pIE = __webpack_require__(51);
 var toObject = __webpack_require__(9);
-var IObject = __webpack_require__(49);
+var IObject = __webpack_require__(50);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
@@ -3208,7 +3208,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 var aFunction = __webpack_require__(10);
 var toObject = __webpack_require__(9);
-var IObject = __webpack_require__(49);
+var IObject = __webpack_require__(50);
 var toLength = __webpack_require__(6);
 
 module.exports = function (that, callbackfn, aLen, memo, isRight) {
@@ -3301,7 +3301,7 @@ __webpack_require__(0)({
 // 21.2.5.3 get RegExp.prototype.flags()
 if (__webpack_require__(7) && /./g.flags != 'g') __webpack_require__(8).f(RegExp.prototype, 'flags', {
   configurable: true,
-  get: __webpack_require__(51)
+  get: __webpack_require__(52)
 });
 
 
@@ -3800,7 +3800,7 @@ module.exports = function (that, maxLength, fillString, left) {
 var DESCRIPTORS = __webpack_require__(7);
 var getKeys = __webpack_require__(35);
 var toIObject = __webpack_require__(15);
-var isEnum = __webpack_require__(50).f;
+var isEnum = __webpack_require__(51).f;
 module.exports = function (isEntries) {
   return function (it) {
     var O = toIObject(it);
@@ -11233,7 +11233,7 @@ var $export = __webpack_require__(0);
 var redefine = __webpack_require__(12);
 var META = __webpack_require__(30).KEY;
 var $fails = __webpack_require__(3);
-var shared = __webpack_require__(48);
+var shared = __webpack_require__(49);
 var setToStringTag = __webpack_require__(44);
 var uid = __webpack_require__(34);
 var wks = __webpack_require__(5);
@@ -11376,7 +11376,7 @@ if (!USE_NATIVE) {
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
   __webpack_require__(38).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(50).f = $propertyIsEnumerable;
+  __webpack_require__(51).f = $propertyIsEnumerable;
   $GOPS.f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(29)) {
@@ -11476,7 +11476,7 @@ setToStringTag(global.JSON, 'JSON', true);
 /* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(48)('native-function-to-string', Function.toString);
+module.exports = __webpack_require__(49)('native-function-to-string', Function.toString);
 
 
 /***/ }),
@@ -11486,7 +11486,7 @@ module.exports = __webpack_require__(48)('native-function-to-string', Function.t
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(35);
 var gOPS = __webpack_require__(55);
-var pIE = __webpack_require__(50);
+var pIE = __webpack_require__(51);
 module.exports = function (it) {
   var result = getKeys(it);
   var getSymbols = gOPS.f;
@@ -12978,7 +12978,7 @@ var toIObject = __webpack_require__(15);
 var arrayJoin = [].join;
 
 // fallback for not array-like strings
-$export($export.P + $export.F * (__webpack_require__(49) != Object || !__webpack_require__(22)(arrayJoin)), 'Array', {
+$export($export.P + $export.F * (__webpack_require__(50) != Object || !__webpack_require__(22)(arrayJoin)), 'Array', {
   join: function join(separator) {
     return arrayJoin.call(toIObject(this), separator === undefined ? ',' : separator);
   }
@@ -13325,7 +13325,7 @@ var inheritIfRequired = __webpack_require__(76);
 var dP = __webpack_require__(8).f;
 var gOPN = __webpack_require__(38).f;
 var isRegExp = __webpack_require__(58);
-var $flags = __webpack_require__(51);
+var $flags = __webpack_require__(52);
 var $RegExp = global.RegExp;
 var Base = $RegExp;
 var proto = $RegExp.prototype;
@@ -13373,7 +13373,7 @@ __webpack_require__(39)('RegExp');
 
 __webpack_require__(116);
 var anObject = __webpack_require__(1);
-var $flags = __webpack_require__(51);
+var $flags = __webpack_require__(52);
 var DESCRIPTORS = __webpack_require__(7);
 var TO_STRING = 'toString';
 var $toString = /./[TO_STRING];
@@ -13616,7 +13616,7 @@ __webpack_require__(61)('search', 1, function (defined, SEARCH, $search, maybeCa
 
 var isRegExp = __webpack_require__(58);
 var anObject = __webpack_require__(1);
-var speciesConstructor = __webpack_require__(52);
+var speciesConstructor = __webpack_require__(53);
 var advanceStringIndex = __webpack_require__(91);
 var toLength = __webpack_require__(6);
 var callRegExpExec = __webpack_require__(60);
@@ -13763,7 +13763,7 @@ var isObject = __webpack_require__(4);
 var aFunction = __webpack_require__(10);
 var anInstance = __webpack_require__(40);
 var forOf = __webpack_require__(41);
-var speciesConstructor = __webpack_require__(52);
+var speciesConstructor = __webpack_require__(53);
 var task = __webpack_require__(92).set;
 var microtask = __webpack_require__(93)();
 var newPromiseCapabilityModule = __webpack_require__(94);
@@ -14076,7 +14076,7 @@ var toAbsoluteIndex = __webpack_require__(36);
 var toLength = __webpack_require__(6);
 var isObject = __webpack_require__(4);
 var ArrayBuffer = __webpack_require__(2).ArrayBuffer;
-var speciesConstructor = __webpack_require__(52);
+var speciesConstructor = __webpack_require__(53);
 var $ArrayBuffer = buffer.ArrayBuffer;
 var $DataView = buffer.DataView;
 var $isView = $typed.ABV && ArrayBuffer.isView;
@@ -14739,7 +14739,7 @@ var $export = __webpack_require__(0);
 var defined = __webpack_require__(24);
 var toLength = __webpack_require__(6);
 var isRegExp = __webpack_require__(58);
-var getFlags = __webpack_require__(51);
+var getFlags = __webpack_require__(52);
 var RegExpProto = RegExp.prototype;
 
 var $RegExpStringIterator = function (regexp, string) {
@@ -15235,7 +15235,7 @@ $export($export.S, 'Math', { signbit: function signbit(x) {
 var $export = __webpack_require__(0);
 var core = __webpack_require__(18);
 var global = __webpack_require__(2);
-var speciesConstructor = __webpack_require__(52);
+var speciesConstructor = __webpack_require__(53);
 var promiseResolve = __webpack_require__(118);
 
 $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
@@ -16552,6 +16552,7 @@ module.exports = function (regExp, replace) {
 
 var authEvents = __webpack_require__(339);
 var gameEvents = __webpack_require__(344);
+
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -16562,7 +16563,7 @@ $(function () {
   $('#sign-up').on('submit', authEvents.onSignUp);
   $('#sign-in').on('submit', authEvents.onSignIn);
   $('#sign-out').on('click', authEvents.onSignOut);
-  $('#index-games').on('click', authEvents.onIndexGames);
+  $('#index-games').on('click', gameEvents.onIndexGames);
   $('#new-game').on('click', gameEvents.onNewGame);
   $('#cell0').on('click', gameEvents.onCell0Click);
   $('#cell1').on('click', gameEvents.onCell1Click);
@@ -16573,6 +16574,25 @@ $(function () {
   $('#cell6').on('click', gameEvents.onCell6Click);
   $('#cell7').on('click', gameEvents.onCell7Click);
   $('#cell8').on('click', gameEvents.onCell8Click);
+  //   while (store.game.over === false) {
+  //     gameEvents.wins.forEach(win => {
+  //       win.every(pos => {
+  //         if (pos !== '') {
+  //           console.log('tie')
+  //           store.game.over = true
+  //         }
+  //       })
+  //       if (win === xwin) {
+  //         console.log('X wins!')
+  //         store.game.over = true
+  //       } else if (win === owin) {
+  //         console.log('O wins!')
+  //         store.game.over = true
+  //       } else {
+  //
+  //       }
+  //     })
+  //   }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
@@ -16586,6 +16606,7 @@ $(function () {
 var getFormFields = __webpack_require__(340);
 var api = __webpack_require__(342);
 var ui = __webpack_require__(343);
+var store = __webpack_require__(48);
 
 var onSignUp = function onSignUp(event) {
   event.preventDefault();
@@ -16614,17 +16635,10 @@ var onSignOut = function onSignOut(event) {
   api.signOut().then(ui.signOutSuccess).catch(ui.signOutFailure);
 };
 
-var onIndexGames = function onIndexGames(event) {
-  event.preventDefault();
-  console.log('in onIndexGames');
-  api.indexGames().then(ui.indexGamesSuccess).catch(ui.indexGamesFailure);
-};
-
 module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
-  onSignOut: onSignOut,
-  onIndexGames: onIndexGames
+  onSignOut: onSignOut
 };
 
 /***/ }),
@@ -16717,7 +16731,7 @@ module.exports = addNestedValue;
 /* WEBPACK VAR INJECTION */(function($) {
 
 var config = __webpack_require__(132);
-var store = __webpack_require__(53);
+var store = __webpack_require__(48);
 
 var signUp = function signUp(userData) {
   console.log('in signUp');
@@ -16747,21 +16761,10 @@ var signOut = function signOut() {
   });
 };
 
-var indexGames = function indexGames() {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  });
-};
-
 module.exports = {
   signUp: signUp,
   signIn: signIn,
-  signOut: signOut,
-  indexGames: indexGames
+  signOut: signOut
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
@@ -16772,7 +16775,7 @@ module.exports = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var store = __webpack_require__(53);
+var store = __webpack_require__(48);
 
 var signUpSuccess = function signUpSuccess(res) {
   $('#sign-up').trigger('reset');
@@ -16837,23 +16840,13 @@ var signOutFailure = function signOutFailure() {
   $('#messaging').html('<p>Sign out failed...</p>');
 };
 
-var onIndexGamesSuccess = function onIndexGamesSuccess(res) {
-  console.log(res);
-  var gamesHtml = '';
-  res.game.forEach(function (game) {
-    gamesHtml += '\n    <p>' + game + '</p>';
-  });
-  $('#index-games').html(gamesHtml);
-};
-
 module.exports = {
   signUpSuccess: signUpSuccess,
   signUpFailure: signUpFailure,
   signInSuccess: signInSuccess,
   signInFailure: signInFailure,
   signOutSuccess: signOutSuccess,
-  signOutFailure: signOutFailure,
-  onIndexGamesSuccess: onIndexGamesSuccess
+  signOutFailure: signOutFailure
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
@@ -16864,15 +16857,45 @@ module.exports = {
 "use strict";
 
 
-var store = __webpack_require__(53);
+var store = __webpack_require__(48);
 var api = __webpack_require__(345);
 var ui = __webpack_require__(346);
 
 store.playerState = 1;
+store.gameOver = false;
+
+var wins = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']];
+
+var onGameEnd = function onGameEnd() {
+  wins.forEach(function (win) {
+    if (win.join('') === 'xxx') {
+      console.log('X wins');
+      console.log(wins);
+      console.log(win);
+      store.gameOver = true;
+      ui.gameEndXWonSuccess();
+      console.log(store.gameOver);
+    } else if (win.join('') === 'ooo') {
+      console.log('O wins');
+      console.log(wins);
+      console.log(win);
+      store.gameOver = true;
+      ui.gameEndOWonSuccess();
+    } else if (store.game.cells.join('').length === 8) {
+      console.log('TIE');
+      console.log(wins);
+      console.log(win);
+      store.gameOver = true;
+      ui.gameEndTieSuccess();
+    }
+  });
+};
 
 var onNewGame = function onNewGame(event) {
   event.preventDefault();
   console.log('in onNewGame');
+  store.playerState = 1;
+  wins = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']];
   var gameData = {};
   api.newGame(gameData).then(ui.newGameSuccess).catch(ui.newGameFailure);
 };
@@ -16881,319 +16904,415 @@ var onCell0Click = function onCell0Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[0] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 0,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[0] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[0][0] = 'x';
+        wins[3][0] = 'x';
+        wins[6][0] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 0,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[0][0] = 'o';
+        wins[3][0] = 'o';
+        wins[6][0] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 0,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell0Click(newGameData).then(ui.cell0ClickSuccess).catch(ui.cell0ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 0,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[0] is occupied');
     }
-    api.cell0Click(newGameData).then(ui.cell0ClickSuccess).catch(ui.cell0ClickFailure);
   } else {
-    console.log('This cell[0] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell1Click = function onCell1Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[1] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 1,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[1] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[0][1] = 'x';
+        wins[4][0] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 1,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[0][1] = 'o';
+        wins[4][0] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 1,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell1Click(newGameData).then(ui.cell1ClickSuccess).catch(ui.cell1ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 1,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[1] is occupied');
     }
-    api.cell1Click(newGameData).then(ui.cell1ClickSuccess).catch(ui.cell1ClickFailure);
   } else {
-    console.log('This cell[1] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell2Click = function onCell2Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[2] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 2,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[2] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[0][2] = 'x';
+        wins[5][0] = 'x';
+        wins[7][0] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 2,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[0][2] = 'o';
+        wins[5][0] = 'o';
+        wins[7][0] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 2,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell2Click(newGameData).then(ui.cell2ClickSuccess).catch(ui.cell2ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 2,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[2] is occupied');
     }
-    api.cell2Click(newGameData).then(ui.cell2ClickSuccess).catch(ui.cell2ClickFailure);
   } else {
-    console.log('This cell[2] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell3Click = function onCell3Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[3] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 3,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[3] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[1][0] = 'x';
+        wins[3][1] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 3,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[1][0] = 'o';
+        wins[3][1] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 3,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell3Click(newGameData).then(ui.cell3ClickSuccess).catch(ui.cell3ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 3,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[3] is occupied');
     }
-    api.cell3Click(newGameData).then(ui.cell3ClickSuccess).catch(ui.cell3ClickFailure);
   } else {
-    console.log('This cell[3] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell4Click = function onCell4Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[4] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 4,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[4] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[1][1] = 'x';
+        wins[4][1] = 'x';
+        wins[6][1] = 'x';
+        wins[7][1] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 4,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[1][1] = 'o';
+        wins[4][1] = 'o';
+        wins[6][1] = 'o';
+        wins[7][1] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 4,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell4Click(newGameData).then(ui.cell4ClickSuccess).catch(ui.cell4ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 4,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[4] is occupied');
     }
-    api.cell4Click(newGameData).then(ui.cell4ClickSuccess).catch(ui.cell4ClickFailure);
   } else {
-    console.log('This cell[4] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell5Click = function onCell5Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[5] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 5,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[5] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[1][2] = 'x';
+        wins[5][1] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 5,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[1][2] = 'o';
+        wins[5][1] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 5,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell5Click(newGameData).then(ui.cell5ClickSuccess).catch(ui.cell5ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 5,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[5] is occupied');
     }
-    api.cell5Click(newGameData).then(ui.cell5ClickSuccess).catch(ui.cell5ClickFailure);
   } else {
-    console.log('This cell[5] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell6Click = function onCell6Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[6] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 6,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[6] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[2][0] = 'x';
+        wins[3][2] = 'x';
+        wins[7][2] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 6,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[2][0] = 'o';
+        wins[3][2] = 'o';
+        wins[7][2] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 6,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell6Click(newGameData).then(ui.cell6ClickSuccess).catch(ui.cell6ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 6,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[6] is occupied');
     }
-    api.cell6Click(newGameData).then(ui.cell6ClickSuccess).catch(ui.cell6ClickFailure);
   } else {
-    console.log('This cell[6] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell7Click = function onCell7Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[7] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 7,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[7] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[2][1] = 'x';
+        wins[4][2] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 7,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[2][1] = 'o';
+        wins[4][2] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 7,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell7Click(newGameData).then(ui.cell7ClickSuccess).catch(ui.cell7ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 7,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[7] is occupied');
     }
-    api.cell7Click(newGameData).then(ui.cell7ClickSuccess).catch(ui.cell7ClickFailure);
   } else {
-    console.log('This cell[7] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
 };
 
 var onCell8Click = function onCell8Click(event) {
   event.preventDefault();
   var gameData = store.game;
   var newGameData = {};
-  if (gameData.cells[8] === '') {
-    if (store.playerState === 1) {
-      store.playerState--;
-      console.log('Stored player state is: ', store.playerState);
-      newGameData = {
-        game: {
-          cell: {
-            index: 8,
-            value: 'x'
-          },
-          over: false
-        }
-      };
+  if (store.gameOver === false) {
+    if (gameData.cells[8] === '') {
+      if (store.playerState === 1) {
+        store.playerState--;
+        wins[2][2] = 'x';
+        wins[5][2] = 'x';
+        wins[6][2] = 'x';
+        newGameData = {
+          game: {
+            cell: {
+              index: 8,
+              value: 'x'
+            },
+            over: false
+          }
+        };
+      } else {
+        store.playerState++;
+        wins[2][2] = 'o';
+        wins[5][2] = 'o';
+        wins[6][2] = 'o';
+        newGameData = {
+          game: {
+            cell: {
+              index: 8,
+              value: 'o'
+            },
+            over: false
+          }
+        };
+      }
+      api.cell8Click(newGameData).then(ui.cell8ClickSuccess).catch(ui.cell8ClickFailure);
     } else {
-      store.playerState++;
-      newGameData = {
-        game: {
-          cell: {
-            index: 8,
-            value: 'o'
-          },
-          over: false
-        }
-      };
+      console.log('This cell[8] is occupied');
     }
-    api.cell8Click(newGameData).then(ui.cell8ClickSuccess).catch(ui.cell8ClickFailure);
   } else {
-    console.log('This cell[8] is occupied');
+    console.log('game is over');
   }
+  onGameEnd();
+};
+
+var onIndexGames = function onIndexGames(event) {
+  wins.forEach(function (game) {
+    return console.log(game);
+  });
+  console.log(store.gameOver);
+  event.preventDefault();
+  console.log('in onIndexGames');
+  api.indexGames().then(ui.indexGamesSuccess).catch(ui.indexGamesFailure);
 };
 
 module.exports = {
   onNewGame: onNewGame,
+  onIndexGames: onIndexGames,
+  onGameEnd: onGameEnd,
   onCell0Click: onCell0Click,
   onCell1Click: onCell1Click,
   onCell2Click: onCell2Click,
@@ -17213,7 +17332,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function($) {
 
 var config = __webpack_require__(132);
-var store = __webpack_require__(53);
+var store = __webpack_require__(48);
 
 var newGame = function newGame(gameData) {
   console.log('in newGame');
@@ -17221,6 +17340,16 @@ var newGame = function newGame(gameData) {
     method: 'POST',
     url: config.apiUrl + '/games',
     data: gameData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  });
+};
+
+var indexGames = function indexGames() {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
@@ -17346,6 +17475,7 @@ var cell8Click = function cell8Click(newGameData) {
 
 module.exports = {
   newGame: newGame,
+  indexGames: indexGames,
   cell0Click: cell0Click,
   cell1Click: cell1Click,
   cell2Click: cell2Click,
@@ -17365,21 +17495,32 @@ module.exports = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var store = __webpack_require__(53);
+var store = __webpack_require__(48);
 
 var playerState = 1;
 
 var newGameSuccess = function newGameSuccess(res) {
+  store.gameOver = false;
+  playerState = 1;
+  $('#victory').html('');
+  $('#cell0').html('');
+  $('#cell1').html('');
+  $('#cell2').html('');
+  $('#cell3').html('');
+  $('#cell4').html('');
+  $('#cell5').html('');
+  $('#cell6').html('');
+  $('#cell7').html('');
+  $('#cell8').html('');
   $('#messaging').html('\n    <h1>New Game Started!</h1>\n    ');
   $('#messaging').addClass('success');
   $('#game-board').removeClass('board-hide');
+  $('#player-turn').html('<h3>Player X turn</h3>');
 
   setTimeout(function () {
     $('#messaging').html('');
     $('#messaging').removeClass('success');
   }, 5000);
-
-  $('#player-turn').html('<h3>Player X turn</h3>');
 
   store.game = res.game;
   console.log('store.games = ', store.game._id);
@@ -17390,11 +17531,36 @@ var newGameFailure = function newGameFailure() {
   $('#messaging').html('<p>New Game failed...</p>');
 };
 
+var indexGamesSuccess = function indexGamesSuccess(res) {
+  // let gamesHtml = ''
+  // for (let i = 0; i < res.games.length; i++) {
+  //   console.log(res.games[i])
+  // }
+  // $('#index-games').html(gamesHtml)
+};
+
+var gameEndXWonSuccess = function gameEndXWonSuccess() {
+  $('#victory').html('');
+  $('#victory').html('<h3>X wins!</h3>');
+};
+
+var gameEndOWonSuccess = function gameEndOWonSuccess() {
+  $('#victory').html('');
+  $('#victory').html('<h3>O wins!</h3>');
+};
+
+var gameEndTieSuccess = function gameEndTieSuccess() {
+  $('#victory').html('');
+  $('#victory').html("<h3>It's a tie!</h3>");
+};
+
 var cell0ClickSuccess = function cell0ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell0').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[0] = 'o';
@@ -17402,7 +17568,9 @@ var cell0ClickSuccess = function cell0ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell0').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[0] = 'x';
@@ -17418,7 +17586,9 @@ var cell1ClickSuccess = function cell1ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell1').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[1] = 'o';
@@ -17426,7 +17596,9 @@ var cell1ClickSuccess = function cell1ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell1').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[1] = 'x';
@@ -17442,7 +17614,9 @@ var cell2ClickSuccess = function cell2ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell2').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[2] = 'o';
@@ -17450,7 +17624,9 @@ var cell2ClickSuccess = function cell2ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell2').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[2] = 'x';
@@ -17466,7 +17642,9 @@ var cell3ClickSuccess = function cell3ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell3').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[3] = 'o';
@@ -17474,7 +17652,9 @@ var cell3ClickSuccess = function cell3ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell3').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[3] = 'x';
@@ -17490,7 +17670,9 @@ var cell4ClickSuccess = function cell4ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell4').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[4] = 'o';
@@ -17498,7 +17680,9 @@ var cell4ClickSuccess = function cell4ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell4').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[4] = 'x';
@@ -17514,7 +17698,9 @@ var cell5ClickSuccess = function cell5ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell5').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[5] = 'o';
@@ -17522,7 +17708,9 @@ var cell5ClickSuccess = function cell5ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell5').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[5] = 'x';
@@ -17538,7 +17726,9 @@ var cell6ClickSuccess = function cell6ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell6').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[6] = 'o';
@@ -17546,7 +17736,9 @@ var cell6ClickSuccess = function cell6ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell6').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[6] = 'x';
@@ -17562,7 +17754,9 @@ var cell7ClickSuccess = function cell7ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell7').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[7] = 'o';
@@ -17570,7 +17764,9 @@ var cell7ClickSuccess = function cell7ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell7').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[7] = 'x';
@@ -17586,7 +17782,9 @@ var cell8ClickSuccess = function cell8ClickSuccess() {
   if (playerState === 0) {
     playerState++;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player X turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player X turn</h3>');
+    }
     $('#cell8').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>');
     console.log('player O', playerState);
     store.game.cells[8] = 'o';
@@ -17594,7 +17792,9 @@ var cell8ClickSuccess = function cell8ClickSuccess() {
   } else {
     playerState--;
     $('#player-turn').html('');
-    $('#player-turn').html('<h3>Player O turn</h3>');
+    if (store.gameOver === false) {
+      $('#player-turn').html('<h3>Player O turn</h3>');
+    }
     $('#cell8').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>');
     console.log('player X', playerState);
     store.game.cells[8] = 'x';
@@ -17609,6 +17809,10 @@ var cell8ClickFailure = function cell8ClickFailure() {
 module.exports = {
   newGameSuccess: newGameSuccess,
   newGameFailure: newGameFailure,
+  indexGamesSuccess: indexGamesSuccess,
+  gameEndXWonSuccess: gameEndXWonSuccess,
+  gameEndOWonSuccess: gameEndOWonSuccess,
+  gameEndTieSuccess: gameEndTieSuccess,
   cell0ClickSuccess: cell0ClickSuccess,
   cell0ClickFailure: cell0ClickFailure,
   cell1ClickSuccess: cell1ClickSuccess,
