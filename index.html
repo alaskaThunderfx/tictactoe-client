@@ -10,10 +10,18 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg-image" style="
+      background-image: url('https://wallpapercave.com/wp/wp2814384.jpg');
+    ">
       <section class="intro-container">
-        <h1>Tic Tac Toe</h1>
+        <section class="header">
+          <img src=https://i.imgur.com/x6q4c0c.png alt=paws>
+          <h1 class="logo">Tic Tac Toe-beans</h1>
+          <img src=https://i.imgur.com/x6q4c0c.png alt=paws class="img2">
+        </section>
         <div id="messaging"></div>
         <div id="victory"></div>
         <div id="player-turn" class=""></div>
@@ -45,16 +53,6 @@
 
       <!-- sign up and sign out ends here -->
 
-      <!-- hidden items start here -->
-      <section id='hidden' class='initial-hide'>
-
-        <!-- sign out and new game starts here -->
-        <button id="sign-out">Sign out!</button>
-        <button id="new-game">New Game</button>
-        <div id="sign-out-display"></div>
-      </section>
-      <!-- sign out and new game ends here -->
-
       <!-- game board starts here -->
       <section id='game-board' class='board-hide game-board'>
         <div class="cells">
@@ -72,6 +70,15 @@
         </div>
       </section>
       <!-- game board ends here -->
+
+      <!-- sign out and new game starts here -->
+      <section id='hidden' class='initial-hide'>
+        <button id="sign-out">Sign out!</button>
+        <button id="new-game">New Game</button>
+        <div id="sign-out-display"></div>
+      </section>
+      <!-- sign out and new game ends here -->
+
       <!-- index games here -->
       <!-- <button id='index-games'>Index</button> -->
       <div id='game-index'></div>
