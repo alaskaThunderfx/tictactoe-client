@@ -20,7 +20,7 @@ const newGameSuccess = function (res) {
     `)
   $('#messaging').addClass('success')
   $('#game-board').removeClass('board-hide')
-  $('#player-turn').html('<h3>Player X turn</h3>')
+  $('#player-turn').html('<h3>Puppy\'s turn</h3>')
 
   setTimeout(() => {
     $('#messaging').html('')
@@ -46,12 +46,12 @@ const indexGamesSuccess = function (res) {
 
 const gameEndXWonSuccess = function () {
   $('#victory').html('')
-  $('#victory').html('<h3>X wins!</h3>')
+  $('#victory').html('<h3>Puppy wins!</h3>')
 }
 
 const gameEndOWonSuccess = function () {
   $('#victory').html('')
-  $('#victory').html('<h3>O wins!</h3>')
+  $('#victory').html('<h3>Kitten wins!</h3>')
 }
 
 const gameEndTieSuccess = function () {
@@ -64,7 +64,7 @@ const cell0ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell0').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -74,7 +74,7 @@ const cell0ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell0').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -92,7 +92,7 @@ const cell1ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell1').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -102,7 +102,7 @@ const cell1ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell1').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -120,7 +120,7 @@ const cell2ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell2').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -130,7 +130,7 @@ const cell2ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell2').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -148,7 +148,7 @@ const cell3ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell3').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -158,7 +158,7 @@ const cell3ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell3').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -176,7 +176,7 @@ const cell4ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell4').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -186,7 +186,7 @@ const cell4ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell4').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -204,7 +204,7 @@ const cell5ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell5').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -214,7 +214,7 @@ const cell5ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell5').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -232,7 +232,7 @@ const cell6ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell6').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -242,7 +242,7 @@ const cell6ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell6').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -260,7 +260,7 @@ const cell7ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell7').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -270,7 +270,7 @@ const cell7ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell7').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -288,7 +288,7 @@ const cell8ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player X turn</h3>')
+      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
     }
     $('#cell8').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -298,7 +298,7 @@ const cell8ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Player O turn</h3>')
+      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
     }
     $('#cell8').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)

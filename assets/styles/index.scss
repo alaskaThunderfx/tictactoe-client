@@ -6,26 +6,40 @@ $font-color: $light;
 
 body {
   background-color: $body-bg-color;
+  text-align: center;
 }
 
-.row {
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  height: 60%;
+  width: 60%;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
   align-items: center;
   border: 0;
-  height: 900px;
-  margin: 0;
-  width: 900px;
+  // height: 100vh;
+  max-height: calc(100vh - 75px);
+  margin: auto;
+  max-width: calc(100vh - 75px);
 }
 
 .box {
   align-items: center;
   background-color: $secondary;
   color: $font-color;
-  height: 300px;
   display: flex;
   justify-content: center;
   max-height: initial;
   max-width: initial;
   resize: none;
+  min-height: calc(100% / 3);
 }
 
 .top-bottom {
@@ -52,4 +66,12 @@ body {
 
 .board-hide {
   display: none;
+}
+
+// .intro-container {
+//   position: absolute;
+// }
+
+.cells {
+  height: 80vh;
 }

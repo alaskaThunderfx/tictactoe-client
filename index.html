@@ -12,33 +12,37 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic Tac Toe</h1>
-      <div id="messaging"></div>
-      <div id="victory"></div>
-      <div id="player-turn" class=""></div>
-      <!-- Sign up and sign in starts here -->
-      <section class="authentication">
-        <section>
-          <h3>Sign Up</h3>
-          <form id='sign-up'>
-            <input name="credentials[email]" type="text" placeholder="an@example.email"/>
-            <input name="credentials[password]" type="password" placeholder="an example password"/>
-            <input name="credentials[password_confirmation]" type="password" placeholder="an example password"/>
-            <button>Sign up!</button>
-          </form>
-          <div id="sign-up-display"></div>
-        </section>
+      <section class="intro-container">
+        <h1>Tic Tac Toe</h1>
+        <div id="messaging"></div>
+        <div id="victory"></div>
+        <div id="player-turn" class=""></div>
+        <!-- Sign up and sign in starts here -->
+        <section class="authentication">
+          <section>
+            <h3>Sign Up</h3>
+            <form id='sign-up'>
+              <input name="credentials[email]" type="text" placeholder="an@example.email"/>
+              <input name="credentials[password]" type="password" placeholder="an example password"/>
+              <input name="credentials[password_confirmation]" type="password" placeholder="an example password"/>
+              <button>Sign up!</button>
+            </form>
+            <div id="sign-up-display"></div>
+          </section>
 
-        <section>
-          <h3>Sign In</h3>
-          <form id='sign-in'>
-            <input name="credentials[email]" type="text" placeholder="an@example.email"/>
-            <input name="credentials[password]" type="password" placeholder="an example password"/>
-            <button>Sign in!</button>
-          </form>
-          <div id="sign-in-display"></div>
+          <section>
+            <h3>Sign In</h3>
+            <form id='sign-in'>
+              <input name="credentials[email]" type="text" placeholder="an@example.email"/>
+              <input name="credentials[password]" type="password" placeholder="an example password"/>
+              <button>Sign in!</button>
+            </form>
+            <div id="sign-in-display"></div>
+          </section>
         </section>
       </section>
+
+
       <!-- sign up and sign out ends here -->
 
       <!-- hidden items start here -->
@@ -52,9 +56,9 @@
       <!-- sign out and new game ends here -->
 
       <!-- game board starts here -->
-      <section id='game-board' class='board-hide'>
-        <div id="cells">
-          <div class="row">
+      <section id='game-board' class='board-hide game-board'>
+        <div class="cells">
+          <div class="row h-100 board">
             <div class="col-4 box alt-color" id="cell0"></div>
             <div class="col-4 box left-right alt-color" id="cell1"></div>
             <div class="col-4 box alt-color" id="cell2"></div>
@@ -69,7 +73,7 @@
       </section>
       <!-- game board ends here -->
       <!-- index games here -->
-      <button id='index-games'>Index</button>
+      <!-- <button id='index-games'>Index</button> -->
       <div id='game-index'></div>
     </body>
 </html>

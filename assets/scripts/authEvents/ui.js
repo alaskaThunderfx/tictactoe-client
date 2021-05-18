@@ -64,6 +64,7 @@ const signOutSuccess = function () {
   $('#hidden').addClass('initial-hide')
   $('#game-board').addClass('board-hide')
   $('#player-turn').html('')
+  $('#victory').html('')
 
   store.user = null
 }
