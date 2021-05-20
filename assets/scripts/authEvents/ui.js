@@ -26,6 +26,7 @@ const signInSuccess = function (res) {
     <h3>${res.user.email}</h3>
     `)
   $('#messaging').addClass('success')
+  $('.header').css('top', '14%')
 
   console.log(res)
   $('#sign-in-display').html(`
@@ -54,6 +55,7 @@ const signOutSuccess = function () {
     <h1>Farewell!</h1>
     <h3>${store.user.email}</h3>`)
   $('#messaging').addClass('success')
+  $('.header').css('top', '37%')
   console.log()
   setTimeout(() => {
     $('#messaging').html('')
