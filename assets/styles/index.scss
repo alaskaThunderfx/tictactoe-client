@@ -8,7 +8,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: $body-bg-color;
   text-align: center;
@@ -21,69 +21,14 @@ img {
   width: 60%;
 }
 
+.alt-color {
+  background: rgba(0, 0, 0, 0);
+}
+
 .authentication {
   position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.puppy {
-  width: 74px;
-  height: 150px;
-  object-fit: cover;
-  border: 0px;
-  object-position: -36px -21px;
-  margin-right: -8px;
-}
-
-.kitten {
-  width: 153px;
-  height: 128px;
-  object-fit: cover;
-  border: 0px;
-  object-position: 0px -3px;
-  margin-right: 0px;
-}
-
-.tie {
-  width: 153px;
-  height: 128px;
-  object-fit: cover;
-  border: 0px;
-  object-position: 0px -3px;
-  margin-right: 0px;
-}
-
-.intro-container {
-  border: 0;
-  margin: 0;
-}
-
-.logo {
-  font-family: 'Indie Flower', cursive;
-  font-weight: bolder;
-  font-size: 6.5rem;
-  color: #ebbc71;
-  display: flex;
-  justify-content: center;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  img {
-    animation: shake 1s;
-    animation-iteration-count: infinite;
-    height: 120px;
-    width: 90px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+  top: 50%;
+  left: 32%;
 }
 
 .board {
@@ -94,6 +39,10 @@ img {
   max-height: calc(75vh - 75px);
   margin: auto;
   max-width: calc(75vh - 75px);
+}
+
+.board-hide {
+  display: none;
 }
 
 .box {
@@ -108,9 +57,56 @@ img {
   min-height: calc(100% / 3);
 }
 
-.top-bottom {
-  border-top: solid black;
-  border-bottom: solid black;
+.cells {
+  height: 80vh;
+}
+
+.center {
+  border: solid black;
+}
+
+.game-board {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  position: absolute;
+  top: 18%;
+}
+
+.header {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  img {
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+    height: 120px;
+    width: 90px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.initial-hide {
+  display: none;
+}
+
+.intro-container {
+  border: 0;
+  margin: 0;
+}
+
+.kitten {
+  width: 153px;
+  height: 128px;
+  object-fit: cover;
+  border: 0px;
+  object-position: 0px -3px;
+  margin-right: 0px;
 }
 
 .left-right {
@@ -118,20 +114,22 @@ img {
   border-right: solid black;
 }
 
-.center {
-  border: solid black;
+.logo {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 6.5rem;
+  color: #ebbc71;
+  display: flex;
+  justify-content: center;
 }
 
-.alt-color {
-  background: rgba(0, 0, 0, 0);
-}
-
-.initial-hide {
-  display: none;
-}
-
-.board-hide {
-  display: none;
+.puppy {
+  width: 74px;
+  height: 150px;
+  object-fit: cover;
+  border: 0px;
+  object-position: -36px -21px;
+  margin-right: -8px;
 }
 
 .signout-newgame {
@@ -141,17 +139,24 @@ img {
   transform: translate(-50%, -50%);
 }
 
-.game-board {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  position: absolute;
-  transform: translate(0%, 15%);
+.tie {
+  width: 153px;
+  height: 128px;
+  object-fit: cover;
+  border: 0px;
+  object-position: 0px -3px;
+  margin-right: 0px;
+}
+
+.top-bottom {
+  border-top: solid black;
+  border-bottom: solid black;
 }
 
 #messaging {
   position: absolute;
-  transform: translate(240%, 300%);
+  top: 50%;
+  left: 43%;
 }
 
 #victory {
@@ -164,9 +169,7 @@ img {
   transform: translate(0%, 0%);
 }
 
-.cells {
-  height: 80vh;
-}
+
 
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -182,30 +185,27 @@ img {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInAndOut {
   0% {opacity: 0;}
   50% {opacity: 1;}
+  70% {opacity: .5;}
   100% {opacity: 0;}
 }
 
 @keyframes slideUp {
   0% {
-    width: auto;
-    transform: translate(-50%, -50%);
+    top: 30%;
   }
   100% {
-    width: 70vw;
-    transform: translate(-50%, -264%);
+    top: 1%;
   }
 }
 
 @keyframes slideDown {
   0% {
-    width: 70vw;
-    transform: translate(-50%, -200%);
+    top: 1%;
   }
   100% {
-    width: auto;
-    transform: translate(-50%, -50%);
+    top: 30%;
   }
 }

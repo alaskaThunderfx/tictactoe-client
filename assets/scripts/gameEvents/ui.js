@@ -36,14 +36,6 @@ const newGameFailure = function () {
   $('#messaging').html('<p>New Game failed...</p>')
 }
 
-const indexGamesSuccess = function (res) {
-  // let gamesHtml = ''
-  // for (let i = 0; i < res.games.length; i++) {
-  //   console.log(res.games[i])
-  // }
-  // $('#index-games').html(gamesHtml)
-}
-
 const gameEndXWonSuccess = function () {
   $('#victory').html('')
   $('#victory').html('<h3>Puppy wins!</h3><img src=https://media0.giphy.com/media/dudcZA9e14HIY/giphy.gif alt=happy class=puppy>')
@@ -314,7 +306,6 @@ const cell8ClickFailure = function () {
 module.exports = {
   newGameSuccess,
   newGameFailure,
-  indexGamesSuccess,
   gameEndXWonSuccess,
   gameEndOWonSuccess,
   gameEndTieSuccess,
