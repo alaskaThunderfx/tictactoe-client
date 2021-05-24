@@ -26,12 +26,15 @@ const signInSuccess = function (res) {
     <h3>${res.user.email}</h3>
     `)
   $('#messaging').addClass('success')
-  $('.header').css('top', '14%')
-
-  console.log(res)
-  $('#sign-in-display').html(`
-    `)
+  $('#messaging').css('animation', 'fadeIn 5s')
+  $('.header').css('animation', 'slideUp 1s')
+  $('#sign-in-display').html('')
   $('#sign-in-display').addClass('success')
+
+  setTimeout(() => {
+    $('.header').css('top', '6%')
+    $('.header').css('width', '70vw')
+  }, 999)
 
   setTimeout(() => {
     $('#messaging').html('')
@@ -56,7 +59,10 @@ const signOutSuccess = function () {
     <h3>${store.user.email}</h3>`)
   $('#messaging').addClass('success')
   $('.header').css('top', '37%')
-  console.log()
+  $('.header').css('animation', 'slideDown 1s')
+  setTimeout(() => {
+    $('.header').css('width', 'auto')
+  }, 1000)
   setTimeout(() => {
     $('#messaging').html('')
     $('#messaging').removeClass('success')
