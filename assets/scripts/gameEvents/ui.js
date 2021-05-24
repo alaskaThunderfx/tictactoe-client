@@ -20,9 +20,11 @@ const newGameSuccess = function (res) {
     `)
   $('#messaging').addClass('success')
   $('#game-board').removeClass('board-hide')
+  $('#game-board').css('animation', 'spinIn 1s')
   $('#player-turn').html('<h3>Puppy\'s turn</h3>')
 
   setTimeout(() => {
+    $('#game-board').css('')
     $('#messaging').html('')
     $('#messaging').removeClass('success')
   }, 5000)

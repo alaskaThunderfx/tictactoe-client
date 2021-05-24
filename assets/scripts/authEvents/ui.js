@@ -57,6 +57,7 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $('#game-board').css('animation', 'spinOut 1s')
   $('#messaging').html(`
     <h1>Farewell!</h1>
     <h3>${store.user.email}</h3>`)
@@ -67,6 +68,10 @@ const signOutSuccess = function () {
   $('.header').css('top', '30%')
   $('.header').css('animation', 'slideDown 1s')
   setTimeout(() => {
+    $('#game-board').addClass('board-hide')
+  }, 1000)
+  setTimeout(() => {
+    $('#game-board').css('animation', '')
     $('#messaging').css('animation', '')
     $('#messaging').html('')
     $('#messaging').removeClass('success')
@@ -74,7 +79,6 @@ const signOutSuccess = function () {
 
   $('.authentication').show()
   $('#hidden').addClass('initial-hide')
-  $('#game-board').addClass('board-hide')
   $('#player-turn').html('')
   $('#victory').html('')
 
