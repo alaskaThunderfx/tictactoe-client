@@ -20,13 +20,13 @@ const newGameSuccess = function (res) {
     `)
   $('#messaging').addClass('success')
   $('#game-board').removeClass('board-hide')
-  $('#game-board').css('animation', 'spinIn 1s')
+  $('.board').css('animation', 'spinIn 1s')
   $('#player-turn').html('<h3>Puppy\'s turn</h3>')
   $('#player-turn').css('left', '')
   $('#player-turn').css('left', '8%')
 
   setTimeout(() => {
-    $('#game-board').css('animation', '')
+    $('.board').css('animation', '')
     $('#messaging').html('')
     $('#messaging').removeClass('success')
   }, 5000)
@@ -41,6 +41,7 @@ const newGameFailure = function () {
 }
 
 const gameEndXWonSuccess = function () {
+  $('#victory').css('top')
   $('#victory').html('')
   $('#victory').html('<h3>Puppy wins!</h3><img src=https://media0.giphy.com/media/dudcZA9e14HIY/giphy.gif alt=happy class=puppy>')
 }

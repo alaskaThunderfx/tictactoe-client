@@ -57,7 +57,7 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
-  $('#game-board').css('animation', 'spinOut 1s')
+  $('.board').css('animation', 'spinOut 1s')
   $('#messaging').html(`
     <h1>Farewell!</h1>
     <h3>${store.user.email}</h3>`)
@@ -71,7 +71,7 @@ const signOutSuccess = function () {
     $('#game-board').addClass('board-hide')
   }, 1000)
   setTimeout(() => {
-    $('#game-board').css('animation', '')
+    $('.board').css('animation', '')
     $('#messaging').css('animation', '')
     $('#messaging').html('')
     $('#messaging').removeClass('success')
