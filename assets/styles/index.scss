@@ -214,8 +214,7 @@ img {
 
 @keyframes spinIn {
   0% {
-    width: 0%;
-    height: 0%;
+    flex-grow: .001;
     opacity: 0;
     transform: rotate(0deg);
   }
@@ -223,8 +222,7 @@ img {
     opacity: .25;
   }
   100% {
-    width: 100%;
-    height: 100%;
+    flex-grow: 1;
     opacity: 1;
     transform: rotate(360deg);
   }
@@ -232,8 +230,6 @@ img {
 
 @keyframes spinOut {
   0% {
-    width: 100%;
-    height: 100%;
     opacity: 1;
     transform: rotate(0deg);
   }
@@ -241,8 +237,6 @@ img {
     opacity: .25;
   }
   100% {
-    width: 0%;
-    height: 0%;
     opacity: 0;
     transform: rotate(360deg);
   }
