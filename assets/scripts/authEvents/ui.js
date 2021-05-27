@@ -12,7 +12,7 @@ const signUpSuccess = function (res) {
   setTimeout(() => {
     $('#messaging').html('')
     $('#messaging').removeClass('success')
-  }, 5000)
+  }, 3000)
 }
 
 const signUpFailure = function () {
@@ -26,18 +26,25 @@ const signInSuccess = function (res) {
     <h3>${res.user.email}</h3>
     `)
   $('#messaging').addClass('success')
-
-  console.log(res)
-  $('#sign-in-display').html(`
-    `)
+  $('#messaging').css('top', '50%')
+  $('#messaging').css('left', '43%')
+  $('#messaging').css('animation', 'fadeInAndOut 3s')
+  $('.header').css('animation', 'slideUp 1s')
+  $('#sign-in-display').html('')
   $('#sign-in-display').addClass('success')
 
   setTimeout(() => {
+    $('.header').css('top', '1%')
+    $('.header').css('width', '70vw')
+  }, 999)
+
+  setTimeout(() => {
+    $('#messaging').css('animation', '')
     $('#messaging').html('')
     $('#sign-in-display').html('')
     $('#messaging').removeClass('success')
     $('#sign-in-display').removeClass('success')
-  }, 5000)
+  }, 3000)
 
   $('.authentication').hide()
   $('#hidden').removeClass('initial-hide')
@@ -50,19 +57,28 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $('.board').css('animation', 'spinOut 1s')
   $('#messaging').html(`
     <h1>Farewell!</h1>
     <h3>${store.user.email}</h3>`)
   $('#messaging').addClass('success')
-  console.log()
+  $('#messaging').css('top', '20%')
+  $('#messaging').css('left', '44%')
+  $('#messaging').css('animation', 'fadeInAndOut 3s')
+  $('.header').css('top', '30%')
+  $('.header').css('animation', 'slideDown 1s')
   setTimeout(() => {
+    $('#game-board').addClass('board-hide')
+  }, 1000)
+  setTimeout(() => {
+    $('.board').css('animation', '')
+    $('#messaging').css('animation', '')
     $('#messaging').html('')
     $('#messaging').removeClass('success')
-  }, 5000)
+  }, 3000)
 
   $('.authentication').show()
   $('#hidden').addClass('initial-hide')
-  $('#game-board').addClass('board-hide')
   $('#player-turn').html('')
   $('#victory').html('')
 

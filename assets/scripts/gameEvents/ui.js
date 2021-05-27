@@ -1,5 +1,21 @@
 const store = require('../store.js')
 
+const puppyText = () => {
+  $('#player-turn').removeClass('animate one')
+  $('#player-turn').addClass('animate one')
+  $('#player-turn').html('<h3><span>P</span><span>u</span><span>p</span><span>p</span><span>y</span><span>\'</span><span>s</span><span>&nbsp;</span><span>t</span><span>u</span><span>r</span><span>n</span></h3>')
+  $('#player-turn').css('left', '')
+  $('#player-turn').css('left', '8%')
+}
+
+const kittenText = () => {
+  $('#player-turn').removeClass('animate one')
+  $('#player-turn').addClass('animate one')
+  $('#player-turn').html('<h3><span>K</span><span>i</span><span>t</span><span>t</span><span>e</span><span>n</span><span>\'</span><span>s</span><span>&nbsp;</span><span>t</span><span>u</span><span>r</span><span>n</span></h3>')
+  $('#player-turn').css('left', '')
+  $('#player-turn').css('left', '75%')
+}
+
 let playerState = 1
 
 const newGameSuccess = function (res) {
@@ -15,17 +31,27 @@ const newGameSuccess = function (res) {
   $('#cell6').html('')
   $('#cell7').html('')
   $('#cell8').html('')
-  $('#messaging').html(`
-    <h1>New Game Started!</h1>
-    `)
-  $('#messaging').addClass('success')
+  $('#messaging').html('<h1><span>N</span><span>e</span><span>w</span><span>&nbsp;</span><span>g</span><span>a</span><span>m</span><span>e</span><span>&nbsp;</span><span>s</span><span>t</span><span>a</span><span>r</span><span>t</span><span>e</span><span>d</span><span>!</span></h1>')
+  $('#messaging').addClass('success animate one')
+  $('#messaging').css('z-index', '1')
+  $('#messaging').css('top', '30%')
+  $('#messaging').css('left', '35%')
+  $('#messaging').css('animation', 'fadeInAndOut 3.5s')
   $('#game-board').removeClass('board-hide')
-  $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+  $('.board').css('opacity', '1')
+  $('.board').css('z-index', '0')
+  $('.board').css('animation', 'spinIn 2s')
+  $('#player-turn').addClass('animate one')
+  $('#player-turn').html('<h3><span>P</span><span>u</span><span>p</span><span>p</span><span>y</span><span>\'</span><span>s</span><span>&nbsp;</span><span>t</span><span>u</span><span>r</span><span>n</span></h3>')
+  $('#player-turn').css('left', '')
+  $('#player-turn').css('left', '8%')
 
   setTimeout(() => {
+    $('.board').css('animation', '')
     $('#messaging').html('')
-    $('#messaging').removeClass('success')
-  }, 5000)
+    $('#messaging').css('animation', '')
+    $('#messaging').removeClass('success animate one')
+  }, 3500)
 
   store.game = res.game
   console.log('store.games = ', store.game._id)
@@ -36,25 +62,32 @@ const newGameFailure = function () {
   $('#messaging').html('<p>New Game failed...</p>')
 }
 
-const indexGamesSuccess = function (res) {
-  // let gamesHtml = ''
-  // for (let i = 0; i < res.games.length; i++) {
-  //   console.log(res.games[i])
-  // }
-  // $('#index-games').html(gamesHtml)
-}
-
 const gameEndXWonSuccess = function () {
+  $('.board').css('z-index', '-1')
+  $('#victory').css('z-index', '1')
+  $('#victory').css('top', '41%')
+  $('#victory').css('left', '45%')
+  $('.board').css('opacity', '.25')
   $('#victory').html('')
   $('#victory').html('<h3>Puppy wins!</h3><img src=https://media0.giphy.com/media/dudcZA9e14HIY/giphy.gif alt=happy class=puppy>')
 }
 
 const gameEndOWonSuccess = function () {
+  $('.board').css('z-index', '-1')
+  $('#victory').css('z-index', '1')
+  $('#victory').css('top', '41%')
+  $('#victory').css('left', '45%')
+  $('.board').css('opacity', '.25')
   $('#victory').html('')
   $('#victory').html('<h3>Kitten wins!</h3><img src=https://i0.wp.com/dianaurban.com/wp-content/uploads/2017/07/19-cute-kitten.gif?resize=330%2C328&ssl=1 alt=happy class=kitten>')
 }
 
 const gameEndTieSuccess = function () {
+  $('.board').css('z-index', '-1')
+  $('#victory').css('z-index', '1')
+  $('#victory').css('top', '41%')
+  $('#victory').css('left', '45%')
+  $('.board').css('opacity', '.25')
   $('#victory').html('')
   $('#victory').html('<h3>It\'s a tie!</h3><img src=https://media1.giphy.com/media/XcabqzOLg2tz2/giphy.gif alt=happy class=tie>')
 }
@@ -64,7 +97,7 @@ const cell0ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell0').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -74,7 +107,7 @@ const cell0ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell0').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -92,7 +125,7 @@ const cell1ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell1').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -102,7 +135,7 @@ const cell1ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell1').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -120,7 +153,7 @@ const cell2ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell2').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -130,7 +163,7 @@ const cell2ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell2').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -148,7 +181,7 @@ const cell3ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell3').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -158,7 +191,7 @@ const cell3ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell3').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -176,7 +209,7 @@ const cell4ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell4').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -186,7 +219,7 @@ const cell4ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell4').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -204,7 +237,7 @@ const cell5ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell5').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -214,7 +247,7 @@ const cell5ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell5').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -232,7 +265,7 @@ const cell6ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell6').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -242,7 +275,7 @@ const cell6ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell6').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -260,7 +293,7 @@ const cell7ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell7').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -270,7 +303,7 @@ const cell7ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell7').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -288,7 +321,7 @@ const cell8ClickSuccess = function () {
     playerState++
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Puppy\'s turn</h3>')
+      puppyText()
     }
     $('#cell8').html('<img src=https://media.tenor.com/images/eff22afc2220e9df92a7aa2f53948f9f/tenor.gif alt=BG>')
     console.log('player O', playerState)
@@ -298,7 +331,7 @@ const cell8ClickSuccess = function () {
     playerState--
     $('#player-turn').html('')
     if (store.gameOver === false) {
-      $('#player-turn').html('<h3>Kitten\'s turn</h3>')
+      kittenText()
     }
     $('#cell8').html('<img src=https://media.tenor.com/images/a5d2790f3215f182b0ec6fb814da61b6/tenor.gif alt=BG>')
     console.log('player X', playerState)
@@ -314,7 +347,6 @@ const cell8ClickFailure = function () {
 module.exports = {
   newGameSuccess,
   newGameFailure,
-  indexGamesSuccess,
   gameEndXWonSuccess,
   gameEndOWonSuccess,
   gameEndTieSuccess,
