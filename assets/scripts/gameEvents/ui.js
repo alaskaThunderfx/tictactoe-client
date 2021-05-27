@@ -63,15 +63,21 @@ const newGameFailure = function () {
 }
 
 const gameEndXWonSuccess = function () {
-  $('#victory').css('top', '39%')
-  $('#victory').css('left', '9%')
+  $('.board').css('z-index', '-1')
+  $('#victory').css('z-index', '1')
+  $('#victory').css('top', '41%')
+  $('#victory').css('left', '45%')
+  $('.board').css('opacity', '.25')
   $('#victory').html('')
   $('#victory').html('<h3>Puppy wins!</h3><img src=https://media0.giphy.com/media/dudcZA9e14HIY/giphy.gif alt=happy class=puppy>')
 }
 
 const gameEndOWonSuccess = function () {
-  $('#victory').css('top', '39%')
-  $('#victory').css('left', '9%')
+  $('.board').css('z-index', '-1')
+  $('#victory').css('z-index', '1')
+  $('#victory').css('top', '41%')
+  $('#victory').css('left', '45%')
+  $('.board').css('opacity', '.25')
   $('#victory').html('')
   $('#victory').html('<h3>Kitten wins!</h3><img src=https://i0.wp.com/dianaurban.com/wp-content/uploads/2017/07/19-cute-kitten.gif?resize=330%2C328&ssl=1 alt=happy class=kitten>')
 }
