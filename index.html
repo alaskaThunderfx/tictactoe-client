@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe-beans</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- Link to fonts -->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+      <!-- Link to animate.css -->
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    </head>
+    <body class="bg-image" style="
+      background-image: url('https://wallpapercave.com/wp/wp2814384.jpg');
+    ">
+      <section class="intro-container">
+        <section class="header">
+          <img src=https://i.imgur.com/x6q4c0c.png alt=paws id="left-paw">
+          <h1 class="logo">Tic Tac Toe-beans</h1>
+          <img src=https://i.imgur.com/x6q4c0c.png alt=paws id="right-paw">
+        </section>
+        <div id="messaging"></div>
+        <div id="victory"></div>
+        <div id="player-turn"></div>
+        <!-- Sign up and sign in starts here -->
+        <section class="authentication">
+          <section>
+            <h3>Sign Up</h3>
+            <form id='sign-up'>
+              <input name="credentials[email]" type="text" placeholder="user@name"/>
+              <input name="credentials[password]" type="password" placeholder="password"/>
+              <input name="credentials[password_confirmation]" type="password" placeholder="confirm password"/>
+              <button id="sign-up-button">Sign up!</button>
+            </form>
+            <div id="sign-up-display"></div>
+          </section>
+
+          <section>
+            <h3>Sign In</h3>
+            <form id='sign-in'>
+              <input name="credentials[email]" type="text" placeholder="user@name"/>
+              <input name="credentials[password]" type="password" placeholder="password"/>
+              <button>Sign in!</button>
+            </form>
+            <div id="sign-in-display"></div>
+          </section>
+        </section>
+      </section>
+
+
+      <!-- sign up and sign out ends here -->
+
+      <!-- game board starts here -->
+      <section id='game-board' class='board-hide game-board'>
+        <div class="cells">
+          <div class="row board">
+            <div class="col-4 box alt-color" id="cell0"></div>
+            <div class="col-4 box left-right alt-color" id="cell1"></div>
+            <div class="col-4 box alt-color" id="cell2"></div>
+            <div class="col-4 box top-bottom alt-color" id="cell3"></div>
+            <div class="col-4 box center alt-color" id="cell4"></div>
+            <div class="col-4 box top-bottom alt-color" id="cell5"></div>
+            <div class="col-4 box alt-color" id="cell6"></div>
+            <div class="col-4 box left-right alt-color" id="cell7"></div>
+            <div class="col-4 box alt-color" id="cell8"></div>
+          </div>
+        </div>
+      </section>
+      <!-- game board ends here -->
+
+      <!-- sign out and new game starts here -->
+      <section id='hidden' class='initial-hide signout-newgame'>
+        <button id="sign-out">Sign out!</button>
+        <button id="new-game">New Game</button>
+        <div id="sign-out-display"></div>
+      </section>
+      <!-- sign out and new game ends here -->
+    </body>
+</html>
