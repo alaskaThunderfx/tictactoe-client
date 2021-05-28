@@ -2,6 +2,8 @@ const store = require('../store.js')
 
 const signUpSuccess = function (res) {
   $('#sign-up').trigger('reset')
+  $('#messaging').css('top', '70%')
+  $('#messaging').css('left', '34%')
   $('#messaging').html(`
     <h1>Welcome! Thanks for joining us!</h1>
     <h3>${res.user.email}</h3>
@@ -16,6 +18,8 @@ const signUpSuccess = function (res) {
 }
 
 const signUpFailure = function () {
+  $('#messaging').css('top', '70%')
+  $('#messaging').css('left', '44%')
   $('#messaging').html('<p>Sign up failed...</p>')
 }
 
